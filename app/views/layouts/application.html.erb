@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WhereMyMoney</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+	<body>
+	  <div class="navbar navbar-default">
+	    <div class="container">
+	      <div class="navbar-header">
+	        <%= link_to "Where's my Money", root_path, class: "navbar-brand" %>
+	      </div>
+	      <ul class="nav navbar-nav">
+	        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+	        <% if user_signed_in? %>
+	          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+	        <% else %>
+	          <li><%= link_to "Log In", new_user_session_path %></li>
+	        <% end %>
+	      </ul>
+	      <% if user_signed_in? %>
+	        <%= link_to "New Group", new_group_path, class: "navbar-right navbar-text navbar-link" %>
+	        <%= link_to "New Expense", new_group_path, class: "navbar-right navbar-text navbar-link" %>
+
+	      <% end %>
+	    </div>
+	  </div>
+
+		<% flash.each do |name, msg| %>
+		     <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+		<% end %>
+		<%= yield %>
+
+	</body>
+</html>
