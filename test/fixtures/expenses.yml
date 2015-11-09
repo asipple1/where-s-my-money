@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: expenses
+#
+#  id            :integer          not null, primary key
+#  group_id      :integer
+#  user_id       :integer
+#  description   :string
+#  cost_cents    :integer          default(0), not null
+#  cost_currency :string           default("USD"), not null
+#  date          :date
+#  paid          :boolean
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 # This model initially had no columns defined.  If you add columns to the

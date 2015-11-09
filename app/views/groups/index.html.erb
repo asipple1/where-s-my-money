@@ -1,0 +1,18 @@
+<div class='container'>
+	<h1>Groups</h1>
+	<% if @groups.blank? %>
+		<p>No Groups</p>
+	<% else %>
+		<% @groups.each do |group| %>
+			<div class='panel panel-default'>
+				<div class='panel-heading'>
+					<p><%= group.name %></p>
+				</div>
+				<div class='panel-body'>
+					<p><%= group.description %></p>
+					<%= link_to 'View Group', group_path(group) %>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+</div>

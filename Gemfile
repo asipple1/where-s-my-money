@@ -10,7 +10,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'devise', '~> 3.5', '>= 3.5.2'
 gem 'money-rails'
+gem 'actionpack'
+gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.5.1'
+gem 'annotate', '~> 2.6', '>= 2.6.10'
 gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   gem 'byebug'
