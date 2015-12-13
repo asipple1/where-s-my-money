@@ -1,0 +1,56 @@
+digraph WhereMyMoney {
+rankdir = "LR";
+ranksep = "0.5";
+nodesep = "0.4";
+pad = "0.4,0.4";
+margin = "0,0";
+concentrate = "true";
+labelloc = "t";
+fontsize = "13";
+fontname = "Arial BoldMT";
+node[ shape  =  "Mrecord" , fontsize  =  "10" , fontname  =  "ArialMT" , margin  =  "0.07,0.05" , penwidth  =  "1.0"];
+edge[ fontname  =  "ArialMT" , fontsize  =  "7" , dir  =  "both" , arrowsize  =  "0.9" , penwidth  =  "1.0" , labelangle  =  "32" , labeldistance  =  "1.8"];
+label = "WhereMyMoney domain model\n\n";
+m_Expense [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial BoldMT" point-size="11">Expense</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="cost_cents">cost_cents <font face="Arial ItalicMT" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="cost_currency">cost_currency <font face="Arial ItalicMT" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="date">date <font face="Arial ItalicMT" color="grey60">date</font></td></tr>
+  <tr><td align="left" width="130" port="description">description <font face="Arial ItalicMT" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="paid">paid <font face="Arial ItalicMT" color="grey60">boolean</font></td></tr>
+</table>
+>];
+m_Group [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial BoldMT" point-size="11">Group</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="description">description <font face="Arial ItalicMT" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="name">name <font face="Arial ItalicMT" color="grey60">string</font></td></tr>
+</table>
+>];
+m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial BoldMT" point-size="11">User</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="current_sign_in_at">current_sign_in_at <font face="Arial ItalicMT" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="current_sign_in_ip">current_sign_in_ip <font face="Arial ItalicMT" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="email">email <font face="Arial ItalicMT" color="grey60">string ∗ U</font></td></tr>
+  <tr><td align="left" width="130" port="encrypted_password">encrypted_password <font face="Arial ItalicMT" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="group_id">group_id <font face="Arial ItalicMT" color="grey60">integer</font></td></tr>
+  <tr><td align="left" width="130" port="last_sign_in_at">last_sign_in_at <font face="Arial ItalicMT" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="last_sign_in_ip">last_sign_in_ip <font face="Arial ItalicMT" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="remember_created_at">remember_created_at <font face="Arial ItalicMT" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="reset_password_sent_at">reset_password_sent_at <font face="Arial ItalicMT" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="reset_password_token">reset_password_token <font face="Arial ItalicMT" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="sign_in_count">sign_in_count <font face="Arial ItalicMT" color="grey60">integer ∗</font></td></tr>
+</table>
+>];
+  m_User -> m_Group [arrowhead = "normal", arrowtail = "none", weight = "2"];
+  m_User -> m_Expense [arrowhead = "normal", arrowtail = "none", weight = "1"];
+  m_Group -> m_Expense [arrowhead = "normal", arrowtail = "none", weight = "2"];
+}

@@ -21,6 +21,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       #custom shizz
       t.integer :group_id
+      t.integer :expense_id
       ## Confirmable
       # t.string   :confirmation_token
       # t.datetime :confirmed_at

@@ -1,0 +1,8 @@
+<p><%= expense.description %></p>
+<p>Posted by: <%= expense.user.email %> <%= time_ago_in_words(expense.created_at) %> ago</p>
+<% if user_signed_in? %>
+ <% if expense.user.id == current_user.id %>
+    <%= link_to "Edit", edit_group_expense_path(expense.group, expense) %>
+    <%= link_to "Delete", group_expense_path(expense.group, expense), method: :delete , data: { confirm: "Are you sure?" }%>
+  <% end %>
+<% end %>

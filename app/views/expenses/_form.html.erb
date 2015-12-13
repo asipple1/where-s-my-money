@@ -1,0 +1,6 @@
+<%= simple_form_for([@group, @group.expenses.build]) do |f| %>
+  <%= f.input :description, label: "description" %>
+  <%= f.select :user, options_for_select(user_select), { prompt: 'Choose a Giver' } %>
+  <%= f.select :user, options_for_select(user_select), { prompt: 'Choose a Rec' } %>
+  <%= f.button :submit %>
+<% end %>

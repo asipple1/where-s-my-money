@@ -1,4 +1,6 @@
 <div class='container'>
 	<h1>You are now viewing the <%= @group.name %> group</h1>
+	<%= render @group.expenses %>
+	<%= render 'expenses/form' %>
 	<%= link_to "Back to groups", root_path %>
 </div>

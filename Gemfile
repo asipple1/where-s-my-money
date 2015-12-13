@@ -14,7 +14,11 @@ gem 'actionpack'
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.5.1'
 gem 'annotate', '~> 2.6', '>= 2.6.10'
+gem 'cocoon', '~> 1.2', '>= 1.2.6'
 gem 'sdoc', '~> 0.4.0', group: :doc
+group :development do
+  gem "rails-erd"
+end
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'

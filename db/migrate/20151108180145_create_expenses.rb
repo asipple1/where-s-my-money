@@ -3,7 +3,7 @@ class CreateExpenses < ActiveRecord::Migration
     create_table :expenses do |t|
     	t.integer :group_id
     	t.integer :user_id
-    	t.string :description
+    	t.text :description
     	t.money :cost
     	t.date :date
     	t.boolean :paid
