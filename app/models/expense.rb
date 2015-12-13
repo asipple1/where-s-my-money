@@ -15,6 +15,6 @@
 #
 
 class Expense < ActiveRecord::Base
-	belongs_to :user
-	belongs_to :group
+  belongs_to :giver, :class_name => 'Membership', :foreign_key => 'giver_id'
+  has_one :reveiver, :class_name => 'Membership', :foreign_key => 'receiver_id'
 end

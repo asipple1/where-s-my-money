@@ -1,12 +1,12 @@
 class CreateExpenses < ActiveRecord::Migration
   def change
     create_table :expenses do |t|
-    	t.integer :group_id
-    	t.integer :user_id
+      t.integer :giver_id, null: false
+      t.integer :receiver_id, null: false
     	t.text :description
     	t.money :cost
     	t.date :date
-    	t.boolean :paid
+      t.string :status, null: false
       t.timestamps null: false
     end
   end

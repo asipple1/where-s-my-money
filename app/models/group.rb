@@ -11,6 +11,6 @@
 #
 
 class Group < ActiveRecord::Base
-	belongs_to :users
-	has_many :expenses
+  has_many :memberships, :class_name => 'Membership', :foreign_key => 'group_id'
+  has_many :users, :through => :memberships
 end

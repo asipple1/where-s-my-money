@@ -1,6 +1,5 @@
 class GroupsController < ApplicationController
-	before_action :authenticate_user!, except: [:index, :show]
-	before_action :authenticate_user!, except: [:index, :show]
+	before_action :authenticate_user!
 	before_action :group_id, only: [:show, :edit, :destroy]
 
 	def index
@@ -13,7 +12,8 @@ class GroupsController < ApplicationController
 
 	def create
 		@group = current_user.groups.build(group_params)
-		if @group.save
+    @membership = current_user.memberships.build(:group => @group, :user => current_user, :status => MembershipStatus::ACTIVE)
+    if @group.save && @membership.save
 			redirect_to root_path
 		else
 			render 'new'
