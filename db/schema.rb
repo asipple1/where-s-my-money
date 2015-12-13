@@ -14,18 +14,20 @@
 ActiveRecord::Schema.define(version: 20151213024203) do
 
   create_table "expenses", force: :cascade do |t|
-    t.integer  "giver_id",                      null: false
-    t.integer  "receiver_id",                   null: false
+    t.integer  "group_id"
+    t.integer  "user_id"
     t.text     "description"
     t.integer  "cost_cents",    default: 0,     null: false
     t.string   "cost_currency", default: "USD", null: false
     t.date     "date"
-    t.string   "status",                        null: false
+    t.boolean  "paid"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
   end
 
   create_table "groups", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "expense_id"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -50,6 +52,8 @@ ActiveRecord::Schema.define(version: 20151213024203) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "group_id"
+    t.integer  "expense_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
