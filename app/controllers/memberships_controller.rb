@@ -33,9 +33,12 @@ class MembershipsController < ApplicationController
 	end
 
   private
+
+
     def findOrCreateUserAndMembership(email)
+
+      # Lol this broken... Doesn't work if the user already exists
       user = User.exists?(email: email) ? User.find_by_email(email) : User.create(email: email)
-      membership = @group.memberships.build
       if !user.persisted?
         user.password = SecureRandom.uuid
         user.save

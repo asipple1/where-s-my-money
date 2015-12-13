@@ -4,14 +4,23 @@
 		<p>No Groups</p>
 	<% else %>
 		<% @groups.each do |group| %>
-			<div class='panel panel-default'>
-				<div class='panel-heading'>
-					<p><%= group.name %></p>
-				</div>
-				<div class='panel-body'>
-					<%= link_to 'View Group', group_path(group) %>
-				</div>
-			</div>
+			<div class="col-md-4">
+				<div class="mdl-card mdl-shadow--2dp">
+					<div class="mdl-card__title mdl-card--expand">
+			  		<h2 class="mdl-card__title-text"><%= group.name.capitalize %></h2>
+					</div>
+		  		<div class="mdl-card__supporting-text">
+		    		<p>Members: <%= group.memberships.count %></p>
+		    		<!-- Total Expenses -->
+		    		<!-- Total unpaid Expenses -->
+		    		<!-- Total paid Expenses -->
+		  		</div>
+		  		<div class="mdl-card__actions mdl-card--border">
+		  			<%= link_to 'View Group', group_path(group), class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>
+		  			<!-- Link to see your expenses for the group -->
+		      </div>
+	      </div>
+      </div>
 		<% end %>
 	<% end %>
 </div>
